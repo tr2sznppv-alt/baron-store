@@ -787,7 +787,7 @@
   // Init
   async function init() {
     try {
-      const cacheBust = Math.floor(Date.now() / 300000);
+      const cacheBust = Date.now();
       const resp = await fetch("apps.json?v=" + cacheBust);
       data = await resp.json();
     } catch {
