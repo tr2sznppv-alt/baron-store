@@ -1,18 +1,24 @@
 <!DOCTYPE html>
-<html lang="ar" data-theme="dark">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BARON — متجر الألعاب والتطبيقات</title>
-  <meta name="description" content="BARON — متجرك الشامل للألعاب والتطبيقات المجانية.">
+  <title>Appétit — FKA Apps</title>
+  <meta name="description" content="Appétit — An App Store-inspired catalog of free, tiny apps built with agentic engineering and vibecoding.">
   <meta name="theme-color" content="#000000">
+  <link rel="canonical" href="https://apps.fka.dev">
   <link rel="icon" type="image/svg+xml" href="logo.svg">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="app-store">
     <aside class="sidebar" id="sidebar">
-      <div class="sidebar-header"></div>
+      <div class="sidebar-header">
+        <div class="search-box">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" placeholder="Search" id="searchInput">
+        </div>
+      </div>
       <nav class="sidebar-nav" id="sidebarNav"></nav>
       <div class="sidebar-footer">
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
@@ -20,8 +26,9 @@
           <svg class="theme-icon moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
           <span class="theme-label">Light Mode</span>
         </button>
-        <a href="#" class="developer-info">
-          <span class="developer-name">BARON</span>
+        <a href="https://fka.dev" target="_blank" rel="noopener" class="developer-info">
+          <img src="https://avatars.githubusercontent.com/u/196477?v=4" alt="Fatih Kadir Akin" class="developer-avatar">
+          <span class="developer-name">Fatih Kadir Akin</span>
         </a>
       </div>
     </aside>
@@ -35,23 +42,8 @@
       <button class="mobile-back-fab hidden" id="mobileBackBtn" aria-label="Back">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
       </button>
-      <div class="top-search-bar">
-        <div class="search-box">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          <input type="text" placeholder="ابحث عن تطبيق أو لعبة..." id="searchInput">
-        </div>
-      </div>
       <div class="content-scroll" id="contentScroll"></div>
-    </main><nav class="bottom-nav" id="bottomNav">
-  <button class="bottom-nav-btn" data-view="games">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="3"/><line x1="7" y1="12" x2="11" y2="12"/><line x1="9" y1="10" x2="9" y2="14"/><circle cx="16" cy="11" r="1"/><circle cx="17.5" cy="14" r="1"/></svg>
-    <span>الألعاب</span>
-  </button>
-  <button class="bottom-nav-btn" data-view="apps">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
-    <span>التطبيقات</span>
-  </button>
-</nav>
+    </main>
   </div>
 
   <div class="modal-overlay" id="modalOverlay">

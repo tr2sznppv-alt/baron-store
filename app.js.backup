@@ -142,7 +142,7 @@
   function buildSidebar() {
     const nav = $("#sidebarNav");
     const items = [
-      { id: "discover", name: "اكتشف", icon: icons.discover },
+      { id: "discover", name: "Discover", icon: icons.discover },
     ];
 
     let html = "";
@@ -153,13 +153,16 @@
     });
 
     html += `<div class="nav-separator"></div>`;
-    html += `<div class="nav-section-label">الفئات</div>`;
+    html += `<div class="nav-section-label">Categories</div>`;
 
-    const categories = (data.categories || []).filter(c => c.id !== "all").map(cat => ({
-      id: cat.id,
-      name: cat.name,
-      icon: icons[cat.id] || icons.discover
-    }));
+    const categories = [
+      { id: "macos", name: "macOS Apps", icon: icons.macos },
+      { id: "web", name: "Web Apps", icon: icons.web },
+      { id: "developer-tools", name: "Developer Tools", icon: icons["developer-tools"] },
+      { id: "cli", name: "CLI Apps", icon: icons.cli },
+      { id: "productivity", name: "Productivity", icon: icons.productivity },
+      { id: "games", name: "Games", icon: icons.games },
+    ];
 
     categories.forEach((cat) => {
       html += `<div class="nav-item${currentView === cat.id ? " active" : ""}" data-view="${cat.id}">
@@ -167,7 +170,10 @@
       </div>`;
     });
 
-
+    html += `<div class="nav-separator"></div>`;
+    html += `<div class="nav-item" data-view="github">
+      <span class="nav-icon">${icons.github}</span>GitHub
+    </div>`;
 
     nav.innerHTML = html;
   }
@@ -494,7 +500,6 @@
     buildSidebar();
     bindEvents();
     updateMobileTopbar();
-    if (typeof updateBottomNavActive === "function") updateBottomNavActive();
   }
 
   function onHashChange() {
@@ -719,25 +724,6 @@
   }
 
   // Sidebar click
-  function bindBottomNav() {
-    const nav = document.getElementById("bottomNav");
-    if (!nav) return;
-    nav.addEventListener("click", (e) => {
-      const btn = e.target.closest(".bottom-nav-btn");
-      if (!btn) return;
-      navigate(btn.dataset.view);
-      updateBottomNavActive();
-    });
-  }
-
-  function updateBottomNavActive() {
-    const nav = document.getElementById("bottomNav");
-    if (!nav) return;
-    nav.querySelectorAll(".bottom-nav-btn").forEach((btn) => {
-      btn.classList.toggle("active", btn.dataset.view === currentView);
-    });
-  }
-
   function bindSidebar() {
     $("#sidebarNav").addEventListener("click", (e) => {
       const item = e.target.closest(".nav-item");
@@ -805,8 +791,6 @@
     const initial = parseHash();
     navigate(initial.view || "discover", initial.appId || null);
     bindSidebar();
-    bindBottomNav();
-    updateBottomNavActive();
     bindSearch();
     bindKeyboard();
     bindThemeToggle();

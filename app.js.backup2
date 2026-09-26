@@ -167,7 +167,10 @@
       </div>`;
     });
 
-
+    html += `<div class="nav-separator"></div>`;
+    html += `<div class="nav-item" data-view="github">
+      <span class="nav-icon">${icons.github}</span>GitHub
+    </div>`;
 
     nav.innerHTML = html;
   }
@@ -494,7 +497,6 @@
     buildSidebar();
     bindEvents();
     updateMobileTopbar();
-    if (typeof updateBottomNavActive === "function") updateBottomNavActive();
   }
 
   function onHashChange() {
@@ -719,25 +721,6 @@
   }
 
   // Sidebar click
-  function bindBottomNav() {
-    const nav = document.getElementById("bottomNav");
-    if (!nav) return;
-    nav.addEventListener("click", (e) => {
-      const btn = e.target.closest(".bottom-nav-btn");
-      if (!btn) return;
-      navigate(btn.dataset.view);
-      updateBottomNavActive();
-    });
-  }
-
-  function updateBottomNavActive() {
-    const nav = document.getElementById("bottomNav");
-    if (!nav) return;
-    nav.querySelectorAll(".bottom-nav-btn").forEach((btn) => {
-      btn.classList.toggle("active", btn.dataset.view === currentView);
-    });
-  }
-
   function bindSidebar() {
     $("#sidebarNav").addEventListener("click", (e) => {
       const item = e.target.closest(".nav-item");
@@ -805,8 +788,6 @@
     const initial = parseHash();
     navigate(initial.view || "discover", initial.appId || null);
     bindSidebar();
-    bindBottomNav();
-    updateBottomNavActive();
     bindSearch();
     bindKeyboard();
     bindThemeToggle();
