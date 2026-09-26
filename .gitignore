@@ -1,2 +1,7 @@
-wvw.dev/
-wvw.dev-app/
+*.backup
+*.backup2
+*.bak2
+*.bak3
+*.broken
+*.wrong
+.DS_Store
