@@ -1754,3 +1754,14 @@ body {
     padding-bottom: 0;
   }
 }
+
+/* ===== Fix: Bottom padding for bottom-nav overlap ===== */
+.content-scroll {
+  padding-bottom: 90px !important;
+}
+
+@media (min-width: 769px) {
+  .content-scroll {
+    padding-bottom: 0 !important;
+  }
+}
