@@ -746,6 +746,22 @@
     });
   }
 
+  function setupSidebarHideBottomNav() {
+    const sidebar = document.getElementById("sidebar");
+    const bottomNav = document.getElementById("bottomNav");
+    if (!sidebar || !bottomNav) return;
+    const update = () => {
+      if (sidebar.classList.contains("open")) {
+        bottomNav.classList.add("hidden-by-sidebar");
+      } else {
+        bottomNav.classList.remove("hidden-by-sidebar");
+      }
+    };
+    const observer = new MutationObserver(update);
+    observer.observe(sidebar, { attributes: true, attributeFilter: ["class"] });
+    update();
+  }
+
   function bindSidebar() {
     $("#sidebarNav").addEventListener("click", (e) => {
       const item = e.target.closest(".nav-item");
@@ -813,6 +829,7 @@
     const initial = parseHash();
     navigate(initial.view || "discover", initial.appId || null);
     bindSidebar();
+    setupSidebarHideBottomNav();
     bindBottomNav();
     updateBottomNavActive();
     bindSearch();

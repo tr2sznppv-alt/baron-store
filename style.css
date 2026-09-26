@@ -1824,3 +1824,14 @@ body:has(.sidebar-overlay.open) .bottom-nav {
 .bottom-nav {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
+
+/* ===== إخفاء الشريط السفلي عند فتح القائمة الجانبية ===== */
+.bottom-nav.hidden-by-sidebar {
+  transform: translateY(100%) !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.bottom-nav {
+  transition: transform 0.3s ease, opacity 0.3s ease !important;
+}
