@@ -635,9 +635,17 @@
           showBuyModal(app);
         } else if (app.brew || app.installCommand) {
           showBrewModal(app);
+        } else if (app.downloadUrl) {
+          const link = document.createElement("a");
+          link.href = app.downloadUrl;
+          link.target = "_blank";
+          link.rel = "noopener";
+          document.body.appendChild(link);
+          link.click();
+          link.remove();
         } else if (app.homepage) {
           window.open(app.homepage, "_blank");
-        } else {
+        } else if (app.github) {
           window.open(app.github, "_blank");
         }
       });
