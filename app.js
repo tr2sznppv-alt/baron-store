@@ -788,7 +788,7 @@
   async function init() {
     try {
       const cacheBust = Date.now();
-      const resp = await fetch("apps.json?v=" + cacheBust);
+      const resp = await fetch("apps-v2.json?v=" + cacheBust);
       data = await resp.json();
     } catch {
       $("#contentScroll").innerHTML = `
