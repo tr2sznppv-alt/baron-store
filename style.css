@@ -1785,3 +1785,30 @@ body {
 .content-scroll {
   padding-bottom: 60px;
 }
+
+/* ===== BARON FIX v3: Flex layout for bottom-nav ===== */
+@media (max-width: 768px) {
+  .content {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100vh !important;
+    padding-bottom: 64px !important;
+    box-sizing: border-box !important;
+  }
+  
+  .top-search-bar {
+    flex-shrink: 0 !important;
+  }
+  
+  .content-scroll {
+    flex: 1 1 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding-bottom: 20px !important;
+    box-sizing: border-box !important;
+  }
+  
+  .content-scroll::after {
+    display: none !important;
+  }
+}
