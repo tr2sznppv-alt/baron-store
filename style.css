@@ -1812,3 +1812,15 @@ body {
     display: none !important;
   }
 }
+
+/* ===== إخفاء الشريط السفلي عند فتح القائمة الجانبية ===== */
+body:has(#sidebar.open) .bottom-nav,
+body:has(.sidebar-overlay.open) .bottom-nav {
+  transform: translateY(100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.bottom-nav {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
