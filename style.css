@@ -1835,3 +1835,29 @@ body:has(.sidebar-overlay.open) .bottom-nav {
 .bottom-nav {
   transition: transform 0.3s ease, opacity 0.3s ease !important;
 }
+
+
+/* ===== Get Button Premium Style ===== */
+.get-btn:not(.buy-btn) {
+  background: linear-gradient(135deg, #00d4ff 0%, #0088cc 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(0, 212, 255, 0.25) !important;
+  font-weight: 700 !important;
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.1s !important;
+}
+
+.get-btn:not(.buy-btn):hover {
+  background: linear-gradient(135deg, #00b8e6 0%, #0077b3 100%) !important;
+  box-shadow: 0 4px 14px rgba(0, 212, 255, 0.4) !important;
+}
+
+.get-btn:not(.buy-btn):active {
+  transform: scale(0.95) !important;
+  box-shadow: 0 1px 4px rgba(0, 212, 255, 0.3) !important;
+}
+
+/* تخصيص الوضع الفاتح إن وُجد */
+[data-theme="light"] .get-btn:not(.buy-btn) {
+  background: linear-gradient(135deg, #0088cc 0%, #0066a3 100%) !important;
+  color: #ffffff !important;
+}
